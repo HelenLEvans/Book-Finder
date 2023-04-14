@@ -8,6 +8,7 @@ const path = require("path");
 const db = require("./config/connection");
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
