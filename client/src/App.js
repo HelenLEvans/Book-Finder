@@ -32,6 +32,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+function WrongPage() {
+  return <h1>Wrong page</h1>;
+}
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -41,7 +45,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={SearchBooks} />
             <Route exact path="/saved" component={SavedBooks} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+            <Route path="*" component={WrongPage} />
+            {/* <Route render={() => <h1 className="display-2">Wrong page!</h1>} /> */}
           </Switch>
         </>
       </Router>
